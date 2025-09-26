@@ -17,6 +17,7 @@ services:
     restart: unless-stopped
     labels:
       - wud.tag.include=^\d+\.\d+-alpine$$
+      - trafik.enable=false
 
   gitea:
     image: gitea/gitea:${GITEA_VERSION}
@@ -39,13 +40,19 @@ services:
       - "127.0.0.1:222:22"
       - "127.0.0.1:3005:3000"
     networks:
+      - backend
       - nginx-proxy-manager_frontend
       - db
     restart: unless-stopped
     labels:
       - wud.tag.include=^\d+\.\d+\.\d+$$
+      - treafik.enable=true
+      - traefik.http.routers.gitea-gitea.rule=Host(`gitea.dhjensen.tech`)
 
 networks:
+  backend:
+    driver: bridge
+    external: true
   nginx-proxy-manager_frontend:
     driver: bridge
     external: true
