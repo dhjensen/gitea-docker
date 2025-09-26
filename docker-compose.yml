@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
     labels:
       - wud.tag.include=^\d+\.\d+-alpine$$
-      - trafik.enable=false
+      - traefik.enable=false
 
   gitea:
     image: gitea/gitea:${GITEA_VERSION}
@@ -46,7 +46,7 @@ services:
     restart: unless-stopped
     labels:
       - wud.tag.include=^\d+\.\d+\.\d+$$
-      - treafik.enable=true
+      - traefik.enable=true
       - traefik.http.routers.gitea-gitea.rule=Host(`gitea.dhjensen.tech`)
 
 networks:
