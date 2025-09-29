@@ -47,7 +47,7 @@ services:
     labels:
       - wud.tag.include=^\d+\.\d+\.\d+$$
       - traefik.enable=true
-      - traefik.http.routers.gitea-gitea.rule=Host(`gitea.dhjensen.tech`)
+      - traefik.http.services.gitea-gitea.Loadbalancer.server.port=3000
 
 networks:
   backend:
