@@ -16,7 +16,8 @@ services:
       - db
     restart: unless-stopped
     labels:
-      - wud.tag.include=^\d+\.\d+-alpine$$
+      # Staying on version 17.x untill 18 is supported by Gitea.
+      - wud.tag.include=^17\.\d+-alpine$$
       - traefik.enable=false
 
   gitea:
@@ -41,7 +42,6 @@ services:
       - "127.0.0.1:3005:3000"
     networks:
       - backend
-      - nginx-proxy-manager_frontend
       - db
     restart: unless-stopped
     labels:
@@ -51,9 +51,6 @@ services:
 
 networks:
   backend:
-    driver: bridge
-    external: true
-  nginx-proxy-manager_frontend:
     driver: bridge
     external: true
   db:
