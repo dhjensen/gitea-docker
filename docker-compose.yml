@@ -16,8 +16,7 @@ services:
       - db
     restart: unless-stopped
     labels:
-      # Staying on version 17.x untill 18 is supported by Gitea.
-      - wud.tag.include=^17\.\d+-alpine$$
+      - wud.tag.include=^17\.\d+-alpine$$ # Staying on version 17.x untill 18 is supported by Gitea.
       - traefik.enable=false
 
   gitea:
@@ -38,8 +37,8 @@ services:
       - GITEA__database__USER
       - GITEA__database__PASSWD
     ports:
-      - "127.0.0.1:222:22"
-      - "127.0.0.1:3005:3000"
+      - '127.0.0.1:222:22'
+      - '127.0.0.1:3005:3000'
     networks:
       - backend
       - db

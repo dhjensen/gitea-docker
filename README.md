@@ -9,14 +9,14 @@ It starts the following services:
 ## .env example
 
 ```bash
-GITEA_VERSION=version
-GITEA__database__DB_TYPE=type
-GITEA__database__HOST=host:port
-GITEA__database__NAME=dbname
-GITEA__database__USER=username
+GITEA_VERSION=1.25.0
+GITEA__database__DB_TYPE=postgres
+GITEA__database__HOST=db:5432
+GITEA__database__NAME=gitea  
+GITEA__database__USER=gitea  
 GITEA__database__PASSWD=password
-POSTGRES_VERSION=version
-POSTGRES_USER=username
+POSTGRES_VERSION=17.6
+POSTGRES_USER=gitea    
 POSTGRES_PASSWORD=password
-POSTGRES_DB=dbname
+POSTGRES_DB=gitea
 ```
